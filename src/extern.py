@@ -8,7 +8,7 @@ def bin_search(item, criteria, mode = 'py'):
     Args:
         item ([list, tuple]): Item to be searched.
         criteria ([int, float]): Single search criteria.
-        mode ([string], optional): Mode (C or Python) to search in.
+        mode ([string], optional): Mode (C or Python) to search in. Defaults to Python.
 
     Raises:
         ValueError: Missing arguments (in validation functions from validation module)
@@ -21,11 +21,9 @@ def bin_search(item, criteria, mode = 'py'):
     _validate_criteria(inpt = criteria)
 
     if mode == 'py':
-        if type(item) == tuple:
-            item = list(item)
         res = _perform_binary_search(item, criteria, 0, len(item))
     elif mode == 'c':
-        pass
+        raise NotImplementedError('C functionality has not been implemented yet, sorry!')
     else:
         raise ValueError('Invalid mode argument: {}'.format(mode))
 
